@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="TravelTimes" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <xsd:element name="GetTravelTimes">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="0" name="AccessCode" nillable="true" type="xsd:string" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="GetTravelTimesResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element xmlns:q1="http://schemas.datacontract.org/2004/07/" minOccurs="0" name="GetTravelTimesResult" nillable="true" type="q1:ArrayOfTravelTimeRoute" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="GetTravelTime">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="0" name="AccessCode" nillable="true" type="xsd:string" />
+            <xsd:element minOccurs="0" name="TravelTimeID" type="xsd:int" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="GetTravelTimeResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element xmlns:q2="http://schemas.datacontract.org/2004/07/" minOccurs="0" name="GetTravelTimeResult" nillable="true" type="q2:TravelTimeRoute" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="GetTravelTimesAsDataSet">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="0" name="AccessCode" nillable="true" type="xsd:string" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="GetTravelTimesAsDataSetResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="0" name="GetTravelTimesAsDataSetResult" nillable="true">
+              <xsd:complexType>
+                <xsd:annotation>
+                  <xsd:appinfo>
+                    <ActualType Name="DataSet" Namespace="http://schemas.datacontract.org/2004/07/System.Data" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+                  </xsd:appinfo>
+                </xsd:annotation>
+                <xsd:sequence>
+                  <xsd:element ref="xsd:schema" />
+                  <xsd:any />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+    <xs:schema xmlns:tns="http://schemas.microsoft.com/2003/10/Serialization/" attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:element name="anyType" nillable="true" type="xs:anyType" />
+      <xs:element name="anyURI" nillable="true" type="xs:anyURI" />
+      <xs:element name="base64Binary" nillable="true" type="xs:base64Binary" />
+      <xs:element name="boolean" nillable="true" type="xs:boolean" />
+      <xs:element name="byte" nillable="true" type="xs:byte" />
+      <xs:element name="dateTime" nillable="true" type="xs:dateTime" />
+      <xs:element name="decimal" nillable="true" type="xs:decimal" />
+      <xs:element name="double" nillable="true" type="xs:double" />
+      <xs:element name="float" nillable="true" type="xs:float" />
+      <xs:element name="int" nillable="true" type="xs:int" />
+      <xs:element name="long" nillable="true" type="xs:long" />
+      <xs:element name="QName" nillable="true" type="xs:QName" />
+      <xs:element name="short" nillable="true" type="xs:short" />
+      <xs:element name="string" nillable="true" type="xs:string" />
+      <xs:element name="unsignedByte" nillable="true" type="xs:unsignedByte" />
+      <xs:element name="unsignedInt" nillable="true" type="xs:unsignedInt" />
+      <xs:element name="unsignedLong" nillable="true" type="xs:unsignedLong" />
+      <xs:element name="unsignedShort" nillable="true" type="xs:unsignedShort" />
+      <xs:element name="char" nillable="true" type="tns:char" />
+      <xs:simpleType name="char">
+        <xs:restriction base="xs:int" />
+      </xs:simpleType>
+      <xs:element name="duration" nillable="true" type="tns:duration" />
+      <xs:simpleType name="duration">
+        <xs:restriction base="xs:duration">
+          <xs:pattern value="\-?P(\d*D)?(T(\d*H)?(\d*M)?(\d*(\.\d*)?S)?)?" />
+          <xs:minInclusive value="-P10675199DT2H48M5.4775808S" />
+          <xs:maxInclusive value="P10675199DT2H48M5.4775807S" />
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:element name="guid" nillable="true" type="tns:guid" />
+      <xs:simpleType name="guid">
+        <xs:restriction base="xs:string">
+          <xs:pattern value="[\da-fA-F]{8}-[\da-fA-F]{4}-[\da-fA-F]{4}-[\da-fA-F]{4}-[\da-fA-F]{12}" />
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:attribute name="FactoryType" type="xs:QName" />
+      <xs:attribute name="Id" type="xs:ID" />
+      <xs:attribute name="Ref" type="xs:IDREF" />
+    </xs:schema>
+    <xsd:schema xmlns:tns="http://schemas.datacontract.org/2004/07/" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/">
+      <xsd:complexType name="ArrayOfTravelTimeRoute">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="TravelTimeRoute" nillable="true" type="tns:TravelTimeRoute" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="ArrayOfTravelTimeRoute" nillable="true" type="tns:ArrayOfTravelTimeRoute" />
+      <xsd:complexType name="TravelTimeRoute">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="AverageTime" type="xsd:int" />
+          <xsd:element minOccurs="0" name="CurrentTime" type="xsd:int" />
+          <xsd:element minOccurs="0" name="Description" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="Distance" type="xsd:decimal" />
+          <xsd:element minOccurs="0" name="EndPoint" nillable="true" type="tns:RoadwayLocation" />
+          <xsd:element minOccurs="0" name="Name" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="StartPoint" nillable="true" type="tns:RoadwayLocation" />
+          <xsd:element minOccurs="0" name="TimeUpdated" type="xsd:dateTime" />
+          <xsd:element minOccurs="0" name="TravelTimeID" type="xsd:int" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="TravelTimeRoute" nillable="true" type="tns:TravelTimeRoute" />
+      <xsd:complexType name="RoadwayLocation">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="Description" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="Direction" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="Latitude" type="xsd:decimal" />
+          <xsd:element minOccurs="0" name="Longitude" type="xsd:decimal" />
+          <xsd:element minOccurs="0" name="MilePost" type="xsd:decimal" />
+          <xsd:element minOccurs="0" name="RoadName" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="RoadwayLocation" nillable="true" type="tns:RoadwayLocation" />
+    </xsd:schema>
+    <xsd:schema elementFormDefault="qualified">
+      <xsd:element name="DataSet" nillable="true">
+        <xsd:complexType>
+          <xsd:annotation>
+            <xsd:appinfo>
+              <ActualType Name="DataSet" Namespace="http://schemas.datacontract.org/2004/07/System.Data" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+            </xsd:appinfo>
+          </xsd:annotation>
+          <xsd:sequence>
+            <xsd:element ref="xsd:schema" />
+            <xsd:any />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="ITravelTimes_GetTravelTimes_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetTravelTimes" />
+  </wsdl:message>
+  <wsdl:message name="ITravelTimes_GetTravelTimes_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetTravelTimesResponse" />
+  </wsdl:message>
+  <wsdl:message name="ITravelTimes_GetTravelTime_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetTravelTime" />
+  </wsdl:message>
+  <wsdl:message name="ITravelTimes_GetTravelTime_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetTravelTimeResponse" />
+  </wsdl:message>
+  <wsdl:message name="ITravelTimes_GetTravelTimesAsDataSet_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetTravelTimesAsDataSet" />
+  </wsdl:message>
+  <wsdl:message name="ITravelTimes_GetTravelTimesAsDataSet_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetTravelTimesAsDataSetResponse" />
+  </wsdl:message>
+  <wsdl:portType name="ITravelTimes">
+    <wsdl:operation name="GetTravelTimes">
+      <wsdl:input wsaw:Action="http://tempuri.org/ITravelTimes/GetTravelTimes" message="tns:ITravelTimes_GetTravelTimes_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ITravelTimes/GetTravelTimesResponse" message="tns:ITravelTimes_GetTravelTimes_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTravelTime">
+      <wsdl:input wsaw:Action="http://tempuri.org/ITravelTimes/GetTravelTime" message="tns:ITravelTimes_GetTravelTime_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ITravelTimes/GetTravelTimeResponse" message="tns:ITravelTimes_GetTravelTime_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTravelTimesAsDataSet">
+      <wsdl:input wsaw:Action="http://tempuri.org/ITravelTimes/GetTravelTimesAsDataSet" message="tns:ITravelTimes_GetTravelTimesAsDataSet_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ITravelTimes/GetTravelTimesAsDataSetResponse" message="tns:ITravelTimes_GetTravelTimesAsDataSet_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_ITravelTimes" type="tns:ITravelTimes">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetTravelTimes">
+      <soap:operation soapAction="http://tempuri.org/ITravelTimes/GetTravelTimes" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTravelTime">
+      <soap:operation soapAction="http://tempuri.org/ITravelTimes/GetTravelTime" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTravelTimesAsDataSet">
+      <soap:operation soapAction="http://tempuri.org/ITravelTimes/GetTravelTimesAsDataSet" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="TravelTimes">
+    <wsdl:port name="BasicHttpBinding_ITravelTimes" binding="tns:BasicHttpBinding_ITravelTimes">
+      <soap:address location="http://www.wsdot.wa.gov/traffic/api/TravelTimes/TravelTimes.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
